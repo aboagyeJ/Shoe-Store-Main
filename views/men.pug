@@ -1,0 +1,30 @@
+extends layout   
+block content
+function servResp(res){
+var page = 
+<html>
+    <head>
+        <title>MENS</title>
+        </head>
+<body> <form method="post">
+<h1>MEN</h1>
+<nav>
+      <a href="/men">Men</a> |
+      <a href="/women">Women</a> |
+      <a href="/kids">Kids</a> |
+      <a href="/cart">Cart</a> |
+      <a href="/wishlist">Wishlist</a> |
+      <a href="/">Home</a> |
+      <a href="/contact">Contact</a>
+    </nav>
+Shoe Size <select name="activity"><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option>12<option>13<option>14</option></option><option>15</option></select><br>
+
+
+<footer>
+      <p>&copy; 2025 The Best Shoe Store in the World</p>
+    </footer>
+  </body>
+  </html>
+`;
+res.end(page);
+}

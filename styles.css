@@ -1,0 +1,24 @@
+h1 {
+    color: blue;
+}
+
+#men h2 {
+    border-style: dotted;
+}
+
+#women h2 {
+    border-style: dotted;
+}
+
+#kids h2 {
+    border-style: dotted;
+}
+
+#cart h2 {
+    border-style: dotted;
+}
+
+#wishlist h2 {
+    border-style: dotted;
+}
+

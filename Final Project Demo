@@ -1,0 +1,11 @@
+<script>start("/Users/josephaboagye/Downloads/lecture15-master/Final Project Demo/");</script>
+<script>onHasParentDirectory();</script>
+<script>addRow("node_modules","node_modules",1,3424,"3.3 kB",1606759134,"11/30/20, 12:58:54 PM");</script>
+<script>addRow("ShoeStore","ShoeStore",1,160,"160 B",1745892415,"4/28/25, 10:06:55 PM");</script>
+<script>addRow("views","views",1,448,"448 B",1745884882,"4/28/25, 8:01:22 PM");</script>
+<script>addRow("dbManager.js","dbManager.js",0,1434,"1.4 kB",1745979677,"4/29/25, 10:21:17 PM");</script>
+<script>addRow("package-lock.json","package-lock.json",0,32754,"32.0 kB",1606759134,"11/30/20, 12:58:54 PM");</script>
+<script>addRow("package.json","package.json",0,514,"514 B",1606759134,"11/30/20, 12:58:54 PM");</script>
+<script>addRow("README.txt","README.txt",0,517,"517 B",1606759134,"11/30/20, 12:58:54 PM");</script>
+<script>addRow("StoreSite.js","StoreSite.js",0,8035,"7.8 kB",1745979677,"4/29/25, 10:21:17 PM");</script>
+<script>addRow("StoreSite.js~","StoreSite.js~",0,10385,"10.1 kB",1745979677,"4/29/25, 10:21:17 PM");</script>
