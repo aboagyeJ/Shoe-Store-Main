@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1 Contact Us
+
+  p Have a question or need assistance? Please fill out the form below:
+
+  form(method="post", action="/contact/submit")
+    .form-group
+      label(for="name") Name:
+      input(type="text", id="name", name="name", required)
+
+    .form-group
+      label(for="email") Email:
+      input(type="email", id="email", name="email", required)
+
+    .form-group
+      label(for="message") Message:
+      textarea(id="message", name="message", rows="5", required)
+
+    button(type="submit") Send Message

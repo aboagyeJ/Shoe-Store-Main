@@ -1,2 +1,1 @@
-# Shoe-Store
-From Read Me and down is what neccessary, this is similar to your project since it was inspired in order to complete the project overall. This does not have the images but has everything else. The .pug and .pug~ are for the HTMLs for the website. Routing.js shows the POST and GET neccesary for the website and dbManager.js is also simalr since I needed the mongoDB. StoreSite is for the main set up in order for the code to work. 
+In order to run this code you need mongoDB compass running as well as node running in terminal you need to go to StoreSite.js and then go to the terminal in vscode and type in node StoreSite.js, this will show the store. The store only has the images without the images sending to the cart section. 

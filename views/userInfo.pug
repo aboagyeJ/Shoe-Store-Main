@@ -2,9 +2,7 @@ extends layout
 block content
   h1 User Profile
   body
-    if userForm
-      h2 User Information
-    .user-info 
+     .user-info 
     if userForm.name
            p <strong> Name:</strong> #{userForm.name}
     if userForm.email

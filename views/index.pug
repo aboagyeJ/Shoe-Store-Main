@@ -1,0 +1,83 @@
+extends layout
+
+block content
+  h1 THE BEST SHOE STORE IN THE WORLD
+  nav
+    a(href="/men") Men
+    |  |
+    a(href="/women") Women
+    |  |
+    a(href="/kids") Kids
+    |  |
+    a(href="/cart") Cart
+    |  |
+    a(href="/wishlist") Wishlist
+    |  |
+    a(href="/") Home
+    |  |
+    a(href="/contact") Contact
+
+  section.products
+    each product in products
+      div.product-item
+        h3 #{product.name}
+        p Price: $#{product.price}
+        img(src="/images/#{product.image}", alt="#{product.name}", style="width: 100px;")
+        form(action="/cart/add", method="POST")
+          input(type="hidden", name="productId", value="#{product._id}")
+          label(for="quantity-#{product._id}") Quantity:
+          input(type="number", name="quantity", id="quantity-#{product._id}", value="1", min="1")
+          button(type="submit") Add to Cart
+        hr
+
+   form(method="post")
+    label(for="activity") Shoe Size
+    select(name="activity")
+      option 4
+      option 5
+      option 6
+      option 7
+      option 8
+      option 9
+      option 10
+      option 11 12
+      option 13
+      option 14
+      option 15
+    br
+    input(type="submit", value="checkout")
+    br
+    label(for="user-name") name
+    input(type="text", name="user", id="user-name")
+    br
+    label(for="user-address") address
+    input(type="text", name="address", id="user-address")
+    br
+    label(for="user-zipcode") zipcode
+    input(type="text", name="zipcode", id="user-zipcode")
+    br
+    label(for="user-number") number
+    input(type="text", name="number", id="user-number")
+    br
+
+    section.categories
+      h2 Shop by Category
+      a(href="/men") Men's Shoes
+      |  |
+      a(href="/women") Women's Shoes
+      |  |
+      a(href="/kids") Kids' Shoes
+
+    a(href="/cart") Cart
+    a(href="/wishlist") Wishlist
+    a(href="/") Home
+    a(href="/add") add
+    a(href="/remove") remove
+    a(href="/contact") contact
+    a(href="/submit") submit
+    br
+    input(type="submit", value="Procced to checkout")
+    input(type="submit", value="Order")
+
+  footer
+    p &copy; 2025 The Best Shoe Store in the World

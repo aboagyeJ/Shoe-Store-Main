@@ -1,30 +1,55 @@
-extends layout   
+extends layout
+
 block content
-function servResp(res){
-var page = 
-<html>
-    <head>
-        <title>KIDS</title>
-        </head>
-<body> <form method="post">
-<h1>KIDS</h1>
-<nav>
-      <a href="/men">Men</a> |
-      <a href="/women">Women</a> |
-      <a href="/kids">Kids</a> |
-      <a href="/cart">Cart</a> |
-      <a href="/wishlist">Wishlist</a> |
-      <a href="/">Home</a> |
-      <a href="/contact">Contact</a>
-    </nav>
-Shoe Size <select name="activity"><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option>12<option>13<option>14</option></option><option>15</option></select><br>
+  h1 KIDS
+
+  nav
+    a(href="/men") Men
+    |  |
+    a(href="/women") Women
+    |  |
+    a(href="/kids") Kids
+    |  |
+    a(href="/cart") Cart
+    |  |
+    a(href="/wishlist") Wishlist
+    |  |
+    a(href="/") Home
+    |  |
+    a(href="/contact") Contact
+
+    .kids-shoe-list // A container for the list of kids' shoes
+    if products && products.length > 0
+      .product-grid
+        each product in products
+          .product-card
+            a(href=`/product/${product._id}`)
+              img(src=`/images/${product.image}`, alt=product.name)
+            h3
+              a(href=`/product/${product._id}`) #{product.name}
+            p.price $#{product.price}
+         
+    else
+      p No kids' shoes available at the moment.
 
 
-<footer>
-      <p>&copy; 2025 The Best Shoe Store in the World</p>
-    </footer>
-  </body>
-  </html>
-`;
-res.end(page);
-}
+  form(method="post")
+    label(for="activity") Shoe Size
+    select(name="activity")
+      option 4
+      option 5
+      option 6
+      option 7
+      option 8
+      option 9
+      option 10
+      option 11 12
+      option 13
+      option 14
+      option 15
+    br
+    input(type="submit", value="checkout")
+
+ 
+  footer
+    p &copy; 2025 The Best Shoe Store in the World

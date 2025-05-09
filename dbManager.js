@@ -1,52 +1,36 @@
-
 const MongoClient = require('mongodb').MongoClient;
-var getID = require('mongodb').ObjectID();
-var url = "mongodb://127.0.0.1:27017/";
-let database = {};
-//https://stackoverflow.com/questions/61277898/useunifiedtopology-true-pass-deprecated
-let mongoClient = MongoClient(url,{ useUnifiedTopology: true });
-let myDB; //let provides closure, so only one local copy of our db. Th
-//functionally makes this static (one copy for all instances)
+let db;
+const url = "mongodb://127.0.0.1:27017/";
+const client = new MongoClient(url, { useUnifiedTopology: true });
 
-//you can call connect in your code, but it is not advised, it is safer to use
-//"get" to initialize and use connections.
-var connect = async function(dbName){
-    try{
-	await mongoClient.connect();
-//	await mongoClient.db("admin").command({ ping: 1 });
-
-	myDB=mongoClient.db(dbName);
-	
-	if (!myDB){
-	    throw new Error("DB Connection Failed to start!");
-	}
-	else{
-	    console.log(`Connected to ${dbName}`);
-	    return myDB;
-	}
-    } catch(e){
-	console.log(e.message);
+async function connect(dbName) {
+  try {
+    if (!client.isConnected()) {
+      await client.connect();
+      console.log("MongoDB client connected.");
     }
+    db = client.db(dbName);
+    console.log(`Connected to database: ${dbName}`);
+    return db;
+  } catch (error) {
+    console.error("Error connecting to database:", error);
+    throw error;
+  }
 }
-//Call get("<name_of_your_DB"> to initialize the db connection
-//after that you can can call get() to just get the connection anywhere
-database.get = function(dbName){
-    if (myDB){
-	//	console.log("Already connected!");
-	return myDB;
-    } else {
-	return connect(dbName);
-    }
-}
-//call close in your apps when you want to close the DB connection
-database.close = async function(){
 
-    try{
-	await mongoClient.close();
-	return;
-    } catch(e){
-	console.log(e.message);
+const database = {
+  get: async (dbName) => {
+    if (db && db.databaseName === dbName) {
+      return db;
     }
- }
-    
+    return connect(dbName);
+  },
+  close: async () => {
+    if (client.isConnected()) {
+      await client.close();
+      console.log("MongoDB client closed.");
+    }
+  },
+};
+
 module.exports = database;

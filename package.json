@@ -14,9 +14,9 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "express-session": "^1.18.1",
     "mongodb": "^3.6.3",
     "pug": "^3.0.0",
     "tracker": "file:../../../Wk5/act_server_lab/node_modules/tracker/tracker-0.1.5.tgz"
-  },
-  "devDependencies": {}
+  }
 }

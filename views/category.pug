@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+
+  if products.length > 0
+    .product-grid
+      each product in products
+        .product-card
+          h3
+            a(href=`/product/${product._id}`) #{product.name}
+          if product.image
+            img(src=`/images/${product.image}`, alt=product.name)
+          p.price $#{product.price}
+          form(action="/cart/add", method="POST")
+            input(type="hidden", name="productId", value="#{product._id}")
+            label(for="quantity-#{product._id}") Quantity:
+            input(type="number", name="quantity", id="quantity-#{product._id}", value="1", min="1")
+            button(type="submit") Add to Cart
+  else
+    p No products found in this category.
