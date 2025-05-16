@@ -30,7 +30,7 @@ block content
           button(type="submit") Add to Cart
         hr
 
-   form(method="post")
+  form(method="post")
     label(for="activity") Shoe Size
     select(name="activity")
       option 4
@@ -60,14 +60,15 @@ block content
     input(type="text", name="number", id="user-number")
     br
 
-    section.categories
-      h2 Shop by Category
-      a(href="/men") Men's Shoes
-      |  |
-      a(href="/women") Women's Shoes
-      |  |
-      a(href="/kids") Kids' Shoes
+  section.categories
+    h2 Shop by Category
+    a(href="/men") Men's Shoes
+    |  |
+    a(href="/women") Women's Shoes
+    |  |
+    a(href="/kids") Kids' Shoes
 
+  .site-links
     a(href="/cart") Cart
     a(href="/wishlist") Wishlist
     a(href="/") Home
