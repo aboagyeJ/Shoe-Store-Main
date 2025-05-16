@@ -1,6 +1,8 @@
 const MongoClient = require('mongodb').MongoClient;
 let db;
-const url = "mongodb://127.0.0.1:27017/";
+
+// Read the MongoDB URL from an environment variable, with a default for local development
+const url = process.env.MONGODB_URL || "mongodb://127.0.0.1:27017/";
 const client = new MongoClient(url, { useUnifiedTopology: true });
 
 async function connect(dbName) {
